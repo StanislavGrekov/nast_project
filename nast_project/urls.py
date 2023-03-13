@@ -19,6 +19,6 @@ from website.views import answer, httpresponse
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('tets/', answer),
+    path('', answer),
 
 ]
