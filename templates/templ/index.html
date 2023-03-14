@@ -23,15 +23,33 @@
     </div>
 </header>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<div id="top">
+    <h1>Фото</h1>
+    <h3>как стиль жизни</h3>
+</div>
+
+
+<script src="{% static "js/jquery-3.6.4.min.js" %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+
+
 <script>
-    function slowScroll(id){
+    function slowScroll(id) {
     $('body').animate({
     scrollTop: $(id).offset().top
     }; 500);
     }
 
+    $(document).on("scroll", function () {
+        if($(windows).scrollTop() === 0)
+            $("header").removeClass("fixed");
+        else
+            $("header").attr("class","fixed");
+    });
 
 </script>
+
+
 </body>
 </html>
