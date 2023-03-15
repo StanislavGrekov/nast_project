@@ -7,7 +7,7 @@ on:
 
 jobs:
   tests:
-    runs-on: debian-11
+    runs-on: debian 11
     env:
       SECRET_KEY: ${{ secrets.SECRET_KEY }}
       DEBUG: "0"
