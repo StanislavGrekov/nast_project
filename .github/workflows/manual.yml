@@ -48,6 +48,9 @@ jobs:
       - name: Линтинг
         run: flake8 website
 
+      - name: Собираем статику
+        run: python manage.py collectstatic
+
       - name: Тестирование
         run: python manage.py test
         env:
