@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Все_о_самогоноварении</title>
+  <link rel="stylesheet" href="static/main.css">
+</head>
+<body>
+
+  <header>
+    <div id="logo" onclick="slowScroll('#top')">
+      <span>БлогСамогонщика</span>
+    </div>
+    <div id="about">
+      <a href="#" title="О авторе" onclick="slowScroll('#main')">О авторе</a>
+      <a href="#" onclick="slowScroll('#overview')" title="Рецепты">Рецепты</a>
+      <a href="#" onclick="slowScroll('#contacts')" title="Обратня связь">Обратная связь</a>
+    </div>
+  </header>
+
+  <div id="top">
+    <h1>Самогоноварение</h1>
+    <h3>как стиль жизни!</h3>
+  </div>
+
+  <div id="main">
+    <div class="foto">
+      <img src="static/img/Suslov.jpg" alt="Константин">
+      <h3>Приветствую Вас на моей страничке!</h3>
+    </div>
+    <div class="hellow">
+      <span><b>Дорогие Друзья!</b></span>
+    </div>
+    <div class="text">
+      <span>Знаю, Вы здесь не случайно. Вы, так же как и я, любите варить самогон.<br> На своей страничке
+        я собрал самые лучшие рецепты самогона. Эти рецепты по достоинству оценили мои друзья, родственники.
+        <br>И я спешу  поделиться рецептами с Вами, мои уважаемые читатели.  </span>
+    </div>
+  </div>
+
+  <div id="overview">
+    <h2>Рецепты самогона</h2>
+    <h4>Лучшее на одной странице</h4>
+
+    <div class="img">
+      <img src="static/img/samogon1.jpg" alt="Самогон домашний">
+      <span>Самогон домашний</span>
+    </div>
+    <div class="img">
+      <img src="static/img/samogon2.jpg" alt="Сахарный самогон с кофе">
+      <span>Сахарный самогон из огурца</span>
+    </div>
+    <div class="img">
+      <img src="static/img/samogon3.jpg" alt="">
+      <span>Самогон "желудочный" (при заболеавании желудка)</span>
+    </div>
+    <div class="img">
+      <img src="static/img/samogon4.jpg" alt="">
+      <span>Самогон из кофе</span>
+    </div>
+
+  </div>
+
+  <!---->
+
+  <div id="contacts">
+    <center><h5>Обратная связь</h5></center>
+    <form id="form_input" method="post" action="postclient/">
+      {% csrf_token %}
+      <label for="name">Имя <span>*</span></label><br>
+      <input type="text" placeholder="Введите имя" name="name" id="name"><br>
+      <label for="phone">Ваш телефон<span>*</span></label><br>
+			<input placeholder="Введите телефон" name="phone" id="phone"><br>
+			<label for="message">Сообщение <span>*</span></label><br>
+			<textarea placeholder="Введите ваше сообщение" name="message" id="message"></textarea><br>
+            <input id="mess_send" class="btn" type="submit" value="Отправить">
+    </form>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    function slowScroll(id) {
+      $('html, body').animate({
+        scrollTop: $(id).offset().top
+      }, 500);
+    }
+
+    $(document).on("scroll", function () {
+      if($(window).scrollTop() === 0)
+        $("header").removeClass("fixed");
+      else
+        $("header").attr("class", "fixed");
+    });
+  </script>
+</body>
+</html>

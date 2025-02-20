@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Сайт Настеньки</title>
+    <link href="{% static  "main.css" %}" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+<header>
+    <div id = "logo" onclick="slowScroll('#top')">
+       <span>AnastasiyaFotograf</span>
+    </div>
+    <div id="about">
+        <a href="#" title="Обо мне" onclick="slowScroll('#main')">Обо мне</a>
+        <a href="#" title="Портфолио" onclick="slowScroll('#port')">Портфолио</a>
+        <a href="#" title="Цены" onclick="slowScroll('#price')">Цены</a>
+        <a href="#" title="Контакты" onclick="slowScroll('#cont')">Контакты</a>
+    </div>
+</header>
+
+<div id="top">
+    <h1>Фотография</h1>
+    <h3>как стиль жизни</h3>
+</div>
+
+<div id="main">
+    <div class="intro">
+        <h2>Наши услуги помогут вам</h2>
+        <span>Большой выбор всего, что может вам пригодиться</span>
+    </div>
+    <div class="text">
+        <span>Здесь огромный блок слов, который описывает все что можно сделать. Какие фотки, какие услуги и прочее прочее и так далее</span>
+    </div>
+</div>
+
+<div id="overview">
+    <h2>Мои предложения</h2>
+    <h4>Посмотрите какие услуги я выполняю</h4>
+
+    <div class="img">
+        <img src="https://hotwed.com.ua/uploads/thumb/images/statti/foto/lovestory2021/thumb_lovestory01_870x0.jpg" alt="">
+        <span>Фотосессия ловестори</span>
+    </div>
+    <div class="img">
+        <img src="https://tripandlove.ru/wp-content/uploads/2020/01/1-206_result_result_result.jpg" alt="">
+        <span>Свадебная фотосессия</span>
+    </div>
+    <div class="img">
+        <img src="https://www.studiorent.ru/upload_data/6845/upldrb25c4.JPG" alt="">
+        <span>Фотосессия в павильоне</span>
+    </div>
+</div>
+
+
+
+<script src="{% static "js/jquery-3.6.4.min.js" %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+
+
+<script>
+    function slowScroll(id) {
+    $('body').animate({
+    scrollTop: $(id).offset().top
+    }; 500);
+    }
+
+    $(document).on("scroll", function () {
+        if($(windows).scrollTop() === 0)
+            $("header").removeClass("fixed");
+        else
+            $("header").attr("class","fixed");
+    });
+
+</script>
+
+
+</body>
+</html>
