@@ -18,6 +18,13 @@ def postclient(request):
     if name == "" or phone == "" or message == "":
         return HttpResponse("Проверьте поля, возможно Вы пытаетесь передать пустые значения!")
 
+    if len(phone) >= 15:
+        return HttpResponse("Проверьте полe 'Номер телефона', возможно его длинна больше 15!")
+    if len(name) >= 50:
+        return HttpResponse("Проверьте полe 'Имя', возможно его длинна больше 50!")
+    if len(message) >= 500:
+        return HttpResponse("Проверьте полe 'Сообщение', возможно его длинна больше 500!")
+
     message_from_database = Clients.objects.all()
     for element in message_from_database:
         if name == element.name and phone == element.phone and message == element.message:
